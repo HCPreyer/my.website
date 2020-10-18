@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Hans-Christian</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Hans-Christian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>/projects/introduction/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/introduction/test/</guid>
+      <description>Before LBS Before joining LBS and reading for the Master in Financial Analysis, I did my undergraduate studies in International Business at Maastricht University. I deliberately chose to specialize in Finance with the possibility to investigate financial topics such as “Investment Decisions” and “Portfolio Management Theory”. Additionally, in my semester abroad at Hong Kong Polytechnic University, I deepened my knowledge at the Finance and Accounting department, where I studied theoretical understanding of “Merger and Acquisition” and “Risk Management”.</description>
+    </item>
+    
+  </channel>
+</rss>

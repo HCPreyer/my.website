@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Introduction"
       subtitle = "My life before LBS"
       image = "123456789.png"
-      url = "blogs/aliquam"
+      url = "projects/Introduction"
 
     [[params.tiles.showcase]]
       title = "Drinking Nations"
@@ -176,13 +176,13 @@ disqusShortname = ""
 
     [[params.contact.phone]]
     title = "Phone"
-    phone = "(000) 000-0000 x1234"
+    phone = "0049 172 66 42106"
 
     [[params.contact.address]]
     title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+    street = "Harewood Avenue"
+    city = "London, NW1 6NU"
+    country = "UK"
 
   # Footer section
   [params.footer]
