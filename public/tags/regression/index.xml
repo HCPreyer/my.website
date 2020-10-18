@@ -9,6 +9,18 @@
     <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
+      <link>/blogs/blog1/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/blogs/blog1/</guid>
+      <description>knitr::opts_chunk$set(collapse = TRUE)R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)fit &amp;lt;- lm(dist ~ speed, data = cars)fitIncluding Plots You can also embed plots. See Figure @ref(fig:pie) for example:
+par(mar = c(0, 1, 0, 1))pie(c(280, 60, 20),c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),init.</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
       <link>/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
