@@ -1,5 +1,6 @@
+<!DOCTYPE HTML>
 <html>
-<!-- Header -->
+
     <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
 	<meta name="description" content="MFA 2021">
 	<meta name="author" content="Hans-Christian">
 	<meta name="generator" content="Hugo 0.75.1" />
-	<title>R Markdown &middot; Hans-Christian</title>
+	<title>Hello R Markdown &middot; Hans-Christian</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -32,13 +33,12 @@
 	<![endif]-->
 </head>
 
-
     <body>
 
     <!-- Wrapper -->
         <div id="wrapper">
 
-        <!-- Header -->
+            <!-- Header -->
     <header id="header" class="alt">
         <a href="/" class="logo"><strong>Hans-Christian Preyer</strong> <span>By HTML5 Up</span></a>
         <nav>
@@ -71,62 +71,41 @@
     </nav>
 
         <!-- Main -->
-            <div id="main">
+            <div id="main" class="alt">
 
-                <section id="banner" class="style2">
-                    <div class="inner">
-			
-                        <header class="major">
-                            <h1>R Markdown</h1>
-                        </header>
-                        <div class="content">
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Hello R Markdown</h1>
+                            </header>
                             
-                        </div>
-                    </div>
-                </section>
-
-                <section id="two" class="spotlights">
-                    
-                    <section>
-                        <a href="/blogs/blog1/" class="image">
-							<img src="/img/blogs/" alt="" data-position="center center" />
-						</a>
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>Hello R Markdown</h3>
-                                </header>
-                                <p></p>
-                                <ul class="actions">
-                                    <li><a href="/blogs/blog1/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
+                            <pre><code class="language-{r" data-lang="{r">knitr::opts_chunk$set(collapse = TRUE)
+</code></pre><h1 id="r-markdown">R Markdown</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre><code class="language-{r" data-lang="{r">summary(cars)
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+</code></pre><h1 id="including-plots">Including Plots</h1>
+<p>You can also embed plots. See Figure @ref(fig:pie) for example:</p>
+<pre><code class="language-{r" data-lang="{r">par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+</code></pre>
                         </div>
                     </section>
-                    
-                    <section>
-                        <a href="/post/2015-07-23-r-rmarkdown/" class="image">
-							<img src="/img/post/" alt="" data-position="center center" />
-						</a>
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>Hello R Markdown</h3>
-                                </header>
-                                <p></p>
-                                <ul class="actions">
-                                    <li><a href="/post/2015-07-23-r-rmarkdown/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    
-                </section>
+            <!-- Disqus Inject -->
+                
             </div>
             
         <!-- Footer -->
-			
-				<!-- Footer -->
+            
+                <!-- Footer -->
     <footer id="footer">
         <div class="inner">
             <ul class="icons">
@@ -148,7 +127,6 @@
     </footer>
 
             
-        
         </div>
 
     <!-- Scripts -->
@@ -168,6 +146,6 @@
     
 
     
-        
+
     </body>
 </html>

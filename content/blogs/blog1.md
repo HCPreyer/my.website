@@ -1,17 +1,40 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T21:28:43-05:00"
-description: ""
-draft: false
-image:""
-keywords:""
-slug: Hans
-title: Hans
-
-Before joining LBS and reading for the Master in Financial Analysis, I did my undergraduate studies in International Business at Maastricht University. I deliberately chose to specialize in Finance with the possibility to investigate financial topics such as “Investment Decisions” and “Portfolio Management Theory”. Additionally, in my semester abroad at Hong Kong Polytechnic University, I deepened my knowledge at the Finance and Accounting department, where I studied theoretical understanding of “Merger and Acquisition” and “Risk Management”. Above that, I first gained practical experience, through my extracurricular activities at Sigma Finance, the Maastricht University investment fund.
-
-During my bachelor studies and my gap year, I was able to gain professional insights into the field of financial advisory. First, I interned at Deloitte within the department of Strategy and Operations. While working on a post-merger transformation project, I applied financial methods to analyse individual business units in practice. Currently, I am undertaking an internship at Clairfield International, a leading M&A advisory firm. Specifically, I am working in the Financial Advisory division, where I prepare pitches and manage individual deals independently. Here I encounter many of the concepts learned during my undergraduate studies in a real-life setting. 
+title: "Hello R Markdown"
+author: "Frida Gomam"
+date: '2015-07-23T21:13:14-05:00'
+categories: R
+tags:
+- R Markdown
+- plot
+- regression
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
