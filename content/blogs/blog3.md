@@ -1,11 +1,11 @@
 ---
-title: "Beer, Wine & Spirits"
+title: "Tempus"
 date: '2017-10-31T22:26:13-05:00'
 description: If you have any further questions please don' hesitate to get in touch.
 draft: no
-image: wine.jpg
+image: pic08.jpg
 keywords: ''
-slug: "Beer""
+slug: tempus
 categories:
 - ''
 - ''
@@ -13,36 +13,6 @@ categories:
 
 # Where Do People Drink The Most Beer, Wine And Spirits?
 
-```{r, setup, echo=FALSE}
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE, 
-  tidy=FALSE,
-  size="small")
-options(digits = 3)
-knitr::opts_chunk$set(
-  fig.width=6.75, 
-  fig.height=6.75,
-  fig.align = "center")
-```
-
-```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
-library(tidyverse)
-library(mosaic)
-library(ggthemes)
-library(lubridate)
-library(fivethirtyeight)
-library(here)
-library(skimr)
-library(janitor)
-library(vroom)
-library(tidyquant)
-library(rvest)
-library(purrr)  
-library(lubridate)
-library(ggrepel)
-library(patchwork)
-```
 
 ```{r, load_alcohol_data}
 library(fivethirtyeight)
