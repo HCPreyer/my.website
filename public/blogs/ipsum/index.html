@@ -8,7 +8,7 @@
 	<meta name="description" content="MFA 2021">
 	<meta name="author" content="Hans-Christian">
 	<meta name="generator" content="Hugo 0.75.1" />
-	<title>Trump vs. Clinton &middot; Hans-Christian</title>
+	<title>COVID-19 Public Use Data &middot; Hans-Christian</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -77,73 +77,54 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Trump vs. Clinton</h1>
+                                <h1>COVID-19 Public Use Data</h1>
                             </header>
                             
-                                <span class="image main"><img src="/img/blogs/challenge2.png" alt="" /></span>
+                                <span class="image main"><img src="/img/blogs/corona.jpg" alt="" /></span>
                             
-                            <p>The goal of this project was to illustarte the top 10 cities in California that donated most money to Trump and Clinton.
-First I saved two different dataframes CA_contributor and zipcodes in new varibales and merged them via left_join as one dataframe as CA_contributors only listed the zipcodes while the other one assigned the zipcodes to the cities. But first I had to transform the zipcodes into doubles to match the format of the zipcodes in the CA_contributor.</p>
-<pre><code class="language-{r," data-lang="{r,">
-
-CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
-zipcodes_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;zip_code_database.csv&quot;))
-
-library(scales)
-library(patchwork)
-
-#changing zip codes to double and joining with CA_contributors_2016 dataset
-zipcodes_2016 &lt;- zipcodes_2016 %&gt;%
-    mutate(zip=as.double(zip))
-mix &lt;- left_join( CA_contributors_2016, zipcodes_2016, by=&quot;zip&quot;)
-</code></pre><p>I now filtered for Trump and Clinton respectively and made a list of the top 10 cities that donated the most money.</p>
-<pre><code class="language-{r," data-lang="{r,">
-#Summarising contribution amounts for Hillary Clinton
-CA_Clinton &lt;- mix %&gt;%
-      filter(cand_nm==&quot;Clinton, Hillary Rodham&quot;)%&gt;%
-      group_by(primary_city) %&gt;%
-      summarise(totalAmount=sum(contb_receipt_amt)) %&gt;%
-      arrange(desc(totalAmount))%&gt;%
-      mutate(primary_city = fct_reorder(primary_city, totalAmount)) %&gt;%
-      head(10)
-      
-  CA_Clinton
-</code></pre><pre><code class="language-{r," data-lang="{r,">
-#Summarising contribution amounts for Hillary Clinton
-  CA_Trump &lt;- mix %&gt;%
-      filter(cand_nm==&quot;Trump, Donald J.&quot;)%&gt;%
-      group_by(primary_city) %&gt;%
-      summarise(totalAmount=sum(contb_receipt_amt)) %&gt;%
-      arrange(desc(totalAmount))%&gt;%
-      mutate(primary_city = fct_reorder(primary_city, totalAmount)) %&gt;%
-      head(10)
-      
-  CA_Trump
-</code></pre><p>I now plotted both graphs of Trump and Clinton through the patchwork library next to each other.</p>
-<pre><code class="language-{r," data-lang="{r,">
-#Creating a bar plot for Clinton in descending order of contribution raised 
-p1 &lt;- ggplot(CA_Clinton, aes(x=totalAmount, y=primary_city)) + 
-  geom_col(fill=&quot;#3182bd&quot;, size=0.30)  + 
-  theme_bw() +
-  facet_grid(~&quot;Clinton, Hillary Rodham&quot;)+
-  theme(axis.title.x = element_blank(), 
-        axis.title.y = element_blank()) + 
-  scale_x_continuous(labels=dollar)
-
-#Creating a bar plot for Trump in descending order of contribution raised  
-p2 &lt;- ggplot(CA_Trump, aes(x=totalAmount, y=primary_city)) + 
-  geom_col(fill=&quot;#d73027&quot;, size=0.30) + 
-  theme_bw() +
-  facet_grid(~&quot;Trump, Donald J.&quot;)+
-  theme (axis.title.x = element_blank(), 
-        axis.title.y = element_blank()) + 
-  scale_x_continuous(labels=dollar)
-
-#Using the patchwork library to display the plots side by side
-wrap_plots(p1,p2) + labs(x=&quot;Amount raised&quot;) + theme(axis.title.x = element_text(face=&quot;bold&quot;, hjust=-0.41)) + plot_annotation(&quot;Where did candidates raise most money?&quot;) 
-
-</code></pre><p>The two graphs show clearly that Clinton overall received more money from California indicating a majority of democrats. Moreover, Trump and Clinton recieved most money from Los Angeles and San Diego and San Franscisco and Los Angeles respectively, which proves that large/highly populated citites donate more money than smaller ones.</p>
-
+                            <pre><code class="language-{r," data-lang="{r,">url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
+covid_data &lt;- vroom::vroom(url)%&gt;%
+  clean_names()
+</code></pre><p>Given the data we have, we will produce two graphs that show death % rate, first by age group, sex, and whether the patient had co-morbidities or not.</p>
+<pre><code class="language-{r," data-lang="{r,">covid_graph &lt;- covid_data %&gt;% 
+select(medcond_yn, death_yn, sex, age_group) %&gt;%
+  filter(!medcond_yn %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA))%&gt;% 
+  filter(!sex %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  filter(!age_group %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  filter(!death_yn %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  mutate(death_yn = ifelse(death_yn == &quot;Yes&quot;, 1, 0))%&gt;% 
+  mutate(medcond_yn = ifelse(medcond_yn == &quot;Yes&quot;, &quot;With comorbidities&quot;, &quot;Without comorbidities&quot;)) %&gt;% 
+  group_by(age_group, sex, medcond_yn) %&gt;% 
+  summarise(death = prop(death_yn))
+ggplot(covid_graph, aes(x = (death * 100), y = age_group)) +
+  geom_col(fill = &quot;dark blue&quot;) +
+  facet_grid(rows = vars(medcond_yn), cols = vars(sex)) +
+  geom_text(aes(label = round(death * 100, 1)), position = position_dodge(width = 1), hjust = -0.1) +
+  labs(title = &quot;Covid death % age group, sex and presence of co-morbidities&quot;,
+       y = &quot;&quot;, 
+       x = &quot;Percentage of Deaths in %&quot;,
+       caption = &quot;Source: CDC&quot;) +
+  theme_bw()
+</code></pre><p>And second, by age group, sex, and whether the patient was admitted to Intensive Care Unit (ICU) or not.</p>
+<pre><code class="language-{r}" data-lang="{r}">covid_graph2 &lt;- covid_data %&gt;% 
+select(icu_yn, death_yn, sex, age_group) %&gt;%
+  filter(!icu_yn %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA))%&gt;% 
+  filter(!sex %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  filter(!age_group %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  filter(!death_yn %in% c(&quot;Missing&quot;, &quot;Unknown&quot;, &quot;Other&quot;, NA)) %&gt;% 
+  mutate(death_yn = ifelse(death_yn == &quot;Yes&quot;, 1, 0))%&gt;% 
+  mutate(icu_yn = ifelse(icu_yn == &quot;Yes&quot;, &quot;With comorbidities&quot;, &quot;Without comorbidities&quot;)) %&gt;% 
+  group_by(age_group, sex, icu_yn) %&gt;% 
+  summarise(death = prop(death_yn))
+ggplot(covid_graph2, aes(x = (death * 100), y = age_group)) +
+  geom_col(fill = &quot;dark orange&quot;) +
+  facet_grid(rows= vars(icu_yn), cols = vars(sex)) +
+  geom_text(aes(label = round(death * 100, 1)), position = position_dodge(width = 1), hjust = -0.1) +
+  labs(title = &quot;Covid death % age group, sex and presence of co-morbidities&quot;,
+     y = &quot;&quot;, 
+     x = &quot;Percentage of Deaths in %&quot;,
+    caption = &quot;Source: CDC&quot;) +
+  theme_bw()</code></pre>
                         </div>
                     </section>
             <!-- Disqus Inject -->
