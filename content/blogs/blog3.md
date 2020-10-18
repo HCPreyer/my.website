@@ -1,15 +1,18 @@
 ---
-title: "Tempus"
+title: "Beer, Wine & Spirits"
 date: '2017-10-31T22:26:13-05:00'
 description: If you have any further questions please don' hesitate to get in touch.
 draft: no
-image: pic08.jpg
+image: wine.jpg
 keywords: ''
-slug: tempus
+slug: "Beer""
 categories:
 - ''
 - ''
 ---
+
+# Where Do People Drink The Most Beer, Wine And Spirits?
+
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
@@ -40,7 +43,6 @@ library(lubridate)
 library(ggrepel)
 library(patchwork)
 ```
-# Where Do People Drink The Most Beer, Wine And Spirits?
 
 ```{r, load_alcohol_data}
 library(fivethirtyeight)
