@@ -205,10 +205,10 @@ disqusShortname = ""
      # url= "https://www.instagram.com"
       #label = "Instagram"
     
-    [[params.footer.social]]
-      icon = "fa-github"
-      url= "https://www.github.com"
-      label = "GitHub"
+    #[[params.footer.social]]
+     # icon = "fa-github"
+      #url= "https://www.github.com"
+      #label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
