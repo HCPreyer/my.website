@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Introduction"
       subtitle = "My life before LBS"
       image = "123456789.png"
-      url = "projects/Introduction"
+      url = "blogs/XXX"
 
     [[params.tiles.showcase]]
       title = "Drinking Nations"
