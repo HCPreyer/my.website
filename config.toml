@@ -69,7 +69,7 @@ disqusShortname = ""
     # Button Style 1
     [[params.navigation.button1]]
       name = "Get Started"
-      url = "projects"
+      url = "blogs"
 
     # Button Style 2
     [[params.navigation.button2]]
@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "Introduction"
       subtitle = "My life before LBS"
       image = "123456789.png"
-      url = "projects/Introduction"
+      url = "blogs/aliquam"
 
     [[params.tiles.showcase]]
       title = "Drinking Nations"
