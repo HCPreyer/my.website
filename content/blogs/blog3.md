@@ -7,7 +7,6 @@ image: Wine2.jpg
 keywords: ''
 slug: tempus
 categories:
-output: html_document
 - ''
 - ''
 ---
