@@ -8,7 +8,7 @@
 	<meta name="description" content="MFA 2021">
 	<meta name="author" content="Hans-Christian">
 	<meta name="generator" content="Hugo 0.75.1" />
-	<title>Tempus &middot; Hans-Christian</title>
+	<title>Beer, Wine And Spirits &middot; Hans-Christian</title>
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="/css/main.css"/>
@@ -40,7 +40,7 @@
 
             <!-- Header -->
     <header id="header" class="alt">
-        <a href="/" class="logo"><strong>Hans-Christian Preyer</strong> <span>By HTML5 Up</span></a>
+        <a href="/" class="logo"><strong>Hans-Christian Preyer</strong> <span>MFA 2021</span></a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
@@ -77,12 +77,77 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Tempus</h1>
+                                <h1>Beer, Wine And Spirits</h1>
                             </header>
                             
-                                <span class="image main"><img src="/img/blogs/pic08.jpg" alt="" /></span>
+                                <span class="image main"><img src="/img/blogs/Wine2.jpg" alt="" /></span>
                             
-                            
+                            <h1 id="where-do-people-drink-the-most-beer-wine-and-spirits">Where Do People Drink The Most Beer, Wine And Spirits?</h1>
+<pre><code class="language-{r," data-lang="{r,">knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,
+  size=&quot;small&quot;)
+options(digits = 3)
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = &quot;center&quot;)
+</code></pre><pre><code class="language-{r" data-lang="{r">library(tidyverse)
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest)
+library(purrr)  
+library(lubridate)
+library(ggrepel)
+library(patchwork)
+</code></pre><pre><code class="language-{r," data-lang="{r,">library(fivethirtyeight)
+data(drinks)
+</code></pre><p>The drinks data has 1 character variable and 4 numeric variables and there are no missing values we should worry about.</p>
+<pre><code class="language-{r" data-lang="{r">skim(drinks)
+</code></pre><p>Below is a plot of the top 25 beer consuming countries.</p>
+<pre><code class="language-{r" data-lang="{r">drinks_beer &lt;- drinks %&gt;% 
+  arrange(desc(beer_servings)) %&gt;% 
+  head(25)
+ggplot(drinks_beer, aes(y = reorder(country, beer_servings), x = beer_servings)) + 
+  geom_col() + 
+  labs(title = &quot;Global Beer Consumption&quot;, 
+       y = &quot;&quot;,
+       x = &quot;Beer Servings&quot;,
+       caption = &quot;Source: FiveThirtyEight&quot;) +
+  theme_economist()
+</code></pre><p>Next is a plot that shows the top 25 wine consuming countries.</p>
+<pre><code class="language-{r" data-lang="{r">drinks_wine &lt;- drinks %&gt;% 
+  arrange(desc(wine_servings)) %&gt;% 
+  head(25)
+ggplot(drinks_wine, aes(y = reorder(country, wine_servings), x = wine_servings)) + 
+  geom_col() + 
+  labs(title = &quot;Global Wine Consumption&quot;, 
+       y = &quot;&quot;,
+       x = &quot;Wine Servings&quot;,
+       caption = &quot;Source: FiveThirtyEight&quot;) +
+  theme_economist()
+</code></pre><p>Finally, a plot that shows the top 25 spirit consuming countries.</p>
+<pre><code class="language-{r" data-lang="{r">drinks_spirit &lt;- drinks %&gt;% 
+  arrange(desc(spirit_servings)) %&gt;% 
+  head(25)
+ggplot(drinks_spirit, aes(y = reorder(country, spirit_servings), x = spirit_servings)) + 
+  geom_col() + 
+  labs(title = &quot;Global Spirit Consumption&quot;, 
+       y = &quot;&quot;,
+       x = &quot;Spirit Servings&quot;,
+       caption = &quot;Source: FiveThirtyEight&quot;) +
+  theme_economist()
+</code></pre><p>Across the board, there appears to be a strong cultural bias to the types of alcohol that countries consume. For example, Germany is fourth on the chart for global annual beer consumption per person and France tops the wine consumption chart. Furthermore, particularly for beer and spirit consumption, countries that are culturally tied through history have similar consumption patterns. Namibia tops the chart for beer consumption, likely due to its status as a former German colony. A similar pattern exists on the spirits chart as well. Many of the countries in the former Soviet Union and Eastern Bloc appear on that chart, likely due to the common consumption of vodka.</p>
+<p>Contrary to the beer and spirit categories, however, wine consumption is much less tied to shared cultural history and seems more reliant on shared geography and geographic proximity. Because wine is an alcoholic beverage that requires grapes grown in specific climates, it is not as easy to produce across the world. Therefore, the consumption of wine is heavily concentrated in Europe and thus close to the wine producing regions of France, Italy, and Portugal.</p>
+
                         </div>
                     </section>
             <!-- Disqus Inject -->
@@ -95,10 +160,6 @@
     <footer id="footer">
         <div class="inner">
             <ul class="icons">
-                
-                    <li><a href="https://www.instagram.com" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-                
-                    <li><a href="https://www.github.com" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
                     <li><a href="https://www.linkedin.com/in/hans-christian-preyer/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
                 

@@ -8,25 +8,26 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 31 Oct 2017 22:42:51 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hans-Christian</title>
-      <link>/blogs/hans-christian/</link>
+      <title>Life before LBS</title>
+      <link>/blogs/aliquam/</link>
       <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
       
-      <guid>/blogs/hans-christian/</guid>
-      <description></description>
+      <guid>/blogs/aliquam/</guid>
+      <description>Before joining LBS and reading for the Master in Financial Analysis, I did my undergraduate studies in International Business at Maastricht University. I deliberately chose to specialize in Finance with the possibility to investigate financial topics such as “Investment Decisions” and “Portfolio Management Theory”. Additionally, in my semester abroad at Hong Kong Polytechnic University, I deepened my knowledge at the Finance and Accounting department, where I studied theoretical understanding of “Merger and Acquisition” and “Risk Management”.</description>
     </item>
     
     <item>
-      <title>Tempus</title>
+      <title>Beer, Wine And Spirits</title>
       <link>/blogs/tempus/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
       <guid>/blogs/tempus/</guid>
-      <description></description>
+      <description>Where Do People Drink The Most Beer, Wine And Spirits? knitr::opts_chunk$set(message = FALSE, warning = FALSE, tidy=FALSE,size=&amp;quot;small&amp;quot;)options(digits = 3)knitr::opts_chunk$set(fig.width=6.75, fig.height=6.75,fig.align = &amp;quot;center&amp;quot;)library(tidyverse)library(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest)library(purrr) library(lubridate)library(ggrepel)library(patchwork)library(fivethirtyeight)data(drinks)The drinks data has 1 character variable and 4 numeric variables and there are no missing values we should worry about.
+skim(drinks)Below is a plot of the top 25 beer consuming countries.</description>
     </item>
     
     <item>
-      <title>Magna</title>
+      <title>Drinking Nations</title>
       <link>/blogs/magna/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
       
@@ -35,15 +36,12 @@
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/blogs/blog1/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>Trump vs. Clinton</title>
+      <link>/blogs/ipsum/</link>
+      <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       
-      <guid>/blogs/blog1/</guid>
-      <description>knitr::opts_chunk$set(collapse = TRUE)R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)fit &amp;lt;- lm(dist ~ speed, data = cars)fitIncluding Plots You can also embed plots. See Figure @ref(fig:pie) for example:
-par(mar = c(0, 1, 0, 1))pie(c(280, 60, 20),c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),init.</description>
+      <guid>/blogs/ipsum/</guid>
+      <description>The goal of this project was to illustarte the top 10 cities in California that donated most money to Trump and Clinton. First I saved two different dataframes CA_contributor and zipcodes in new varibales and merged them via left_join as one dataframe as CA_contributors only listed the zipcodes while the other one assigned the zipcodes to the cities. But first I had to transform the zipcodes into doubles to match the format of the zipcodes in the CA_contributor.</description>
     </item>
     
     <item>
@@ -55,15 +53,6 @@ par(mar = c(0, 1, 0, 1))pie(c(280, 60, 20),c(&#39;Sky&#39;, &#39;Sunny side o
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Introduction</title>
-      <link>/projects/introduction/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/introduction/test/</guid>
-      <description>Before LBS Before joining LBS and reading for the Master in Financial Analysis, I did my undergraduate studies in International Business at Maastricht University. I deliberately chose to specialize in Finance with the possibility to investigate financial topics such as “Investment Decisions” and “Portfolio Management Theory”. Additionally, in my semester abroad at Hong Kong Polytechnic University, I deepened my knowledge at the Finance and Accounting department, where I studied theoretical understanding of “Merger and Acquisition” and “Risk Management”.</description>
     </item>
     
   </channel>
