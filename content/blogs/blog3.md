@@ -3,9 +3,9 @@ title: "Tempus"
 date: '2017-10-31T22:26:13-05:00'
 description: If you have any further questions please don' hesitate to get in touch.
 draft: no
-image: Wine.jpg
+image: Wine2.jpg
 keywords: ''
-slug: tempus
+slug: Beer, Wine And Spirits
 categories:
 - ''
 - ''
