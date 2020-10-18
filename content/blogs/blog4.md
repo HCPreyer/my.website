@@ -10,7 +10,7 @@ draft: false
 keywords: ""
 slug: aliquam
 title: Life before LBS 
-image: 
+image: Maastricht.jpg
 
 ---
 
