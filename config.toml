@@ -104,8 +104,8 @@ disqusShortname = ""
       url = "blogs/tempus"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
+      title = "Climate Change"
+      subtitle = "Is Climate Change a Myth"
       image = "pic03.jpg"
       url = "blogs/magna"
 
