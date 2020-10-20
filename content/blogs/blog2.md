@@ -65,7 +65,7 @@ tidyweather <- tidyweather %>%
   mutate(date = ymd(paste(as.character(Year), Month, "1")),
          month = month(date, label=TRUE),
          year = year(date))
-ggplot(tidyweather, aes(x=date, y = delta))+
+variable <- ggplot(tidyweather, aes(x=date, y = delta))+
   geom_point()+
   geom_smooth(color="red") +
   theme_bw() +
@@ -74,6 +74,8 @@ ggplot(tidyweather, aes(x=date, y = delta))+
         caption = "Source: NASA",
         x = "Year",
         y = "Temperature Deviation")
+
+variable
 ```
 Using `facet_wrap()` to produce a separate scatter plot for each month, again with a smoothing line, we can examine if the effect of increasing temperature is more pronounced in some months.
 ```{r facet_wrap, echo=FALSE}

@@ -32,8 +32,9 @@ skim(drinks)Below is a plot of the top 25 beer consuming countries.</descriptio
       <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
       
       <guid>/blogs/magna/</guid>
-      <description>Climate change and temperature anomalies library(tidyverse)library(mosaic)library(ggthemes)library(lubridate)library(here)library(skimr)library(janitor)library(httr)library(readxl)library(vroom)library(infer)library(scales)library(tidytext)If we wanted to study climate change, we can find data on the Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies in the Northern Hemisphere at NASA&amp;rsquo;s Goddard Institute for Space Studies. The tabular data of temperature anomalies can be found here.
-To define temperature anomalies we need to have a reference, or base, period which NASA clearly states is the period between 1951-1980.</description>
+      <description>Climate change is an important issue in our lives. We should try to be more aware of our environment and take better care of our world.
+Climate change and temperature anomalies library(tidyverse)library(mosaic)library(ggthemes)library(lubridate)library(here)library(skimr)library(janitor)library(httr)library(readxl)library(vroom)library(infer)library(scales)library(tidytext)library(plotly)To define temperature anomalies we need to have a reference, or base, period which NASA clearly states is the period between 1951-1980.
+We run the code below to load the file:</description>
     </item>
     
     <item>

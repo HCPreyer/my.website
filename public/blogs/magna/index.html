@@ -82,7 +82,8 @@
                             
                                 <span class="image main"><img src="/img/blogs/Climate.jpeg" alt="" /></span>
                             
-                            <h1 id="climate-change-and-temperature-anomalies">Climate change and temperature anomalies</h1>
+                            <p>Climate change is an important issue in our lives. We should try to be more aware of our environment and take better care of our world.</p>
+<h1 id="climate-change-and-temperature-anomalies">Climate change and temperature anomalies</h1>
 <pre><code class="language-{r" data-lang="{r">library(tidyverse)
 library(mosaic)
 library(ggthemes)
@@ -96,16 +97,15 @@ library(vroom)
 library(infer)
 library(scales)
 library(tidytext)
-</code></pre><p>If we wanted to study climate change, we can find data on the <em>Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies</em> in the Northern Hemisphere at <a href="https://data.giss.nasa.gov/gistemp">NASA&rsquo;s Goddard Institute for Space Studies</a>. The <a href="https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt">tabular data of temperature anomalies can be found here</a>.</p>
-<p>To define temperature anomalies we need to have a reference, or base, period which NASA clearly states is the period between 1951-1980.</p>
+library(plotly)
+
+</code></pre><p>To define temperature anomalies we need to have a reference, or base, period which NASA clearly states is the period between 1951-1980.</p>
 <p>We run the code below to load the file:</p>
 <pre><code class="language-{r" data-lang="{r">weather &lt;- 
   read_csv(&quot;https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.csv&quot;, 
            skip = 1, 
            na = &quot;***&quot;)
-</code></pre><p>Notice that, when using this function, we added two options: <code>skip</code> and <code>na</code>. The <code>skip=1</code> option is there as the real data table only starts in row 2, so we need to skip one row. <code>na = &quot;***&quot;</code> option informs R how missing observations in the spreadsheet are coded. When looking at the spreadsheet, we can see that missing data is coded as &ldquo;***.&rdquo; It is best to specify this here, as otherwise some of the data is not recognized as numeric data.</p>
-<p>For each month and year, the data frame shows the deviation of temperature from the normal (expected). Furthermore, the data frame is in wide format.</p>
-<p>We have two objectives in this section:</p>
+</code></pre><p>We have two objectives in this section:</p>
 <p>First is to select the year and the twelve month variables from the <code>weather</code> dataset. We do not need the others (J-D, D-N, DJF, etc.).</p>
 <pre><code class="language-{r" data-lang="{r">tidyweather &lt;- weather %&gt;% 
   select(c(1:13))
@@ -113,21 +113,7 @@ library(tidytext)
 <pre><code class="language-{r" data-lang="{r">tidyweather &lt;- tidyweather %&gt;% 
   pivot_longer(cols = 2:13, names_to = &quot;Month&quot;, values_to = &quot;delta&quot;)
 </code></pre><h2 id="plotting-information">Plotting Information</h2>
-<p>Let us plot the data using a time-series scatter plot, and add a trend line. To do that, we first need to create a new variable called <code>date</code> in order to ensure that the <code>delta</code> values are plot chronologically.</p>
-<pre><code class="language-{r" data-lang="{r">tidyweather &lt;- tidyweather %&gt;%
-  mutate(date = ymd(paste(as.character(Year), Month, &quot;1&quot;)),
-         month = month(date, label=TRUE),
-         year = year(date))
-ggplot(tidyweather, aes(x=date, y = delta))+
-  geom_point()+
-  geom_smooth(color=&quot;red&quot;) +
-  theme_bw() +
-  labs (subtitle = &quot;Weather Anomalies&quot;,
-        title = &quot;Warmer Times&quot;,
-        caption = &quot;Source: NASA&quot;,
-        x = &quot;Year&quot;,
-        y = &quot;Temperature Deviation&quot;)
-</code></pre><p>Using <code>facet_wrap()</code> to produce a separate scatter plot for each month, again with a smoothing line, we can examine if the effect of increasing temperature is more pronounced in some months.</p>
+<p>Using <code>facet_wrap()</code> to produce a separate scatter plot for each month, again with a smoothing line, we can examine if the effect of increasing temperature is more pronounced in some months.</p>
 <pre><code class="language-{r" data-lang="{r">tidyweather$Month = factor(tidyweather$Month, levels = month.abb)
 ggplot(tidyweather, aes(x=date, y = delta))+
   geom_point()+
@@ -174,10 +160,6 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
         caption = &quot;Source: NASA&quot;,
         y = &quot;Average Annual Delta&quot;)
 </code></pre><h2 id="confidence-interval-for-delta">Confidence Interval for <code>delta</code></h2>
-<p><a href="https://earthobservatory.nasa.gov/world-of-change/decadaltemp.php">NASA points out on their website</a> that</p>
-<blockquote>
-<p>A one-degree global change is significant because it takes a vast amount of heat to warm all the oceans, atmosphere, and land by that much. In the past, a one- to two-degree drop was all it took to plunge the Earth into the Little Ice Age.</p>
-</blockquote>
 <p>Now we will construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the <code>infer</code> package. Recall that the dataframe <code>comparison</code> has already grouped temperature anomalies according to time intervals; we are only interested in what is happening  between 2011-present.</p>
 <pre><code class="language-{r," data-lang="{r,">formula_ci &lt;- comparison %&gt;% 
   drop_na() %&gt;% 
@@ -221,6 +203,12 @@ visualize(boot_delta) +
     <footer id="footer">
         <div class="inner">
             <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/hpreyer" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://www.instagram.com/hans_christian4497/?hl=en" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                
+                    <li><a href="https://github.com/HCPreyer" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
                     <li><a href="https://www.linkedin.com/in/hans-christian-preyer/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
                 

@@ -138,13 +138,9 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
+    title = "My Webpage"
+    subtitle = "I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs."
+    buttonText = "Overview of Blogs"
     url = "blogs"
 
 
@@ -153,7 +149,7 @@ disqusShortname = ""
     enable = true
     buttonSend = "Send message"
     buttonClear = "Clear"
-    formEmail = "hpreyer.mfa2021@london.edu"
+    formEmail = "https://formspree.io/f/mayloepw"
   
 
     # Since this template is static, the contact form uses www.formspree.io as a
@@ -198,20 +194,20 @@ disqusShortname = ""
      # url= "https://www.twitter.com"
       #label = "Twitter"
 
-  #[[params.footer.social]]
-     # icon = "fa-facebook"
-      #url= "https://www.facebook.com"
-      #label = "Facebook"
+  [[params.footer.social]]
+      icon = "fa-facebook"
+      url= "https://www.facebook.com/hpreyer"
+      label = "Facebook"
 
-   # [[params.footer.social]]
-    #  icon = "fa-instagram"
-     # url= "https://www.instagram.com"
-      #label = "Instagram"
+    [[params.footer.social]]
+      icon = "fa-instagram"
+      url= "https://www.instagram.com/hans_christian4497/?hl=en"
+      label = "Instagram"
     
-    #[[params.footer.social]]
-     # icon = "fa-github"
-      #url= "https://www.github.com"
-      #label = "GitHub"
+    [[params.footer.social]]
+      icon = "fa-github"
+      url= "https://github.com/HCPreyer"
+      label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
