@@ -11,6 +11,8 @@ slug: magna
 title: Climate Change
 ---
 
+Climate change is an important issue in our lives. We should try to be more aware of our environment and take better care of our world.
+
 # Climate change and temperature anomalies 
 
 ```{r load-libraries, include=FALSE}
@@ -27,10 +29,10 @@ library(vroom)
 library(infer)
 library(scales)
 library(tidytext)
+library(plotly)
+
 ```
 
-
-If we wanted to study climate change, we can find data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere at [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt).
 
 To define temperature anomalies we need to have a reference, or base, period which NASA clearly states is the period between 1951-1980.
 
@@ -41,9 +43,6 @@ weather <-
            skip = 1, 
            na = "***")
 ```
-Notice that, when using this function, we added two options: `skip` and `na`. The `skip=1` option is there as the real data table only starts in row 2, so we need to skip one row. `na = "***"` option informs R how missing observations in the spreadsheet are coded. When looking at the spreadsheet, we can see that missing data is coded as "***." It is best to specify this here, as otherwise some of the data is not recognized as numeric data.
-
-For each month and year, the data frame shows the deviation of temperature from the normal (expected). Furthermore, the data frame is in wide format. 
 
 We have two objectives in this section:
 
@@ -59,25 +58,8 @@ tidyweather <- tidyweather %>%
 ```
 ## Plotting Information
 
-Let us plot the data using a time-series scatter plot, and add a trend line. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
-```{r scatter_plot}
-tidyweather <- tidyweather %>%
-  mutate(date = ymd(paste(as.character(Year), Month, "1")),
-         month = month(date, label=TRUE),
-         year = year(date))
-variable <- ggplot(tidyweather, aes(x=date, y = delta))+
-  geom_point()+
-  geom_smooth(color="red") +
-  theme_bw() +
-  labs (subtitle = "Weather Anomalies",
-        title = "Warmer Times",
-        caption = "Source: NASA",
-        x = "Year",
-        y = "Temperature Deviation")
-
-variable
-```
 Using `facet_wrap()` to produce a separate scatter plot for each month, again with a smoothing line, we can examine if the effect of increasing temperature is more pronounced in some months.
+
 ```{r facet_wrap, echo=FALSE}
 tidyweather$Month = factor(tidyweather$Month, levels = month.abb)
 ggplot(tidyweather, aes(x=date, y = delta))+
@@ -97,6 +79,7 @@ Yes, based on the charts above, the effect of increasing temperature is more pro
 It is sometimes useful to group time into different periods to study historical data. For example, we often use decades such as 1970s, 1980s, 1990s, etc. to refer to a period of time. The code below creates a new data frame called `comparison` that groups data into five time periods: 1881-1920, 1921-1950, 1951-1980, 1981-2010 and 2011-present. 
 
 We remove data before 1800 using `filter`. Then, we use the `mutate` function to create a new variable `interval` which contains information on which period each observation belongs to. We can assign the different periods using `case_when()`.
+
 ```{r intervals}
 comparison <- tidyweather %>% 
   filter(Year>= 1881) %>%
@@ -135,9 +118,6 @@ ggplot(average_annual_anomaly, aes(x=Year, y= annual_average_delta))+
 ```
 
 ## Confidence Interval for `delta`
-
-[NASA points out on their website](https://earthobservatory.nasa.gov/world-of-change/decadaltemp.php) that 
-> A one-degree global change is significant because it takes a vast amount of heat to warm all the oceans, atmosphere, and land by that much. In the past, a one- to two-degree drop was all it took to plunge the Earth into the Little Ice Age.
 
 Now we will construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the `infer` package. Recall that the dataframe `comparison` has already grouped temperature anomalies according to time intervals; we are only interested in what is happening  between 2011-present.
 ```{r, calculate_CI_using_formula}

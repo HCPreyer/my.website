@@ -11,6 +11,8 @@ categories:
 - ''
 ---
 
+As you could easily tell from my name - I come from Germany. So I am interested to find out if it is true, the stereotype of Germans drink most beer and French people drink most wine is true.
+
 # Where Do People Drink The Most Beer, Wine And Spirits?
 
 ```{r, setup, echo=FALSE}
