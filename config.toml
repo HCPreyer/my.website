@@ -138,10 +138,10 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
      enable = true
-    title = "Massa libero"
-    subtitle = "I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs."
-      buttonText = "Get Started"
-    url = "blogs"
+    title = "Further Information"
+    subtitle = "I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs. Attached you can find my CV."
+      buttonText = "CV"
+    url = "blogs/CV"
 
 
  

@@ -60,7 +60,7 @@ tidyweather <- tidyweather %>%
 
 Using `facet_wrap()` to produce a separate scatter plot for each month, again with a smoothing line, we can examine if the effect of increasing temperature is more pronounced in some months.
 
-```{r facet_wrap, echo=FALSE}
+```{r facet_wrap}
 tidyweather$Month = factor(tidyweather$Month, levels = month.abb)
 ggplot(tidyweather, aes(x=date, y = delta))+
   geom_point()+
@@ -91,7 +91,7 @@ comparison <- tidyweather %>%
     TRUE ~ "2011-present"))
 ```
 Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in.
-```{r density_plot}
+```{r density_plot, echo=true}
 ggplot(comparison, aes(x=delta, fill=interval))+
   geom_density(alpha=0.2) +
   theme_bw() +
