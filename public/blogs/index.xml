@@ -32,7 +32,7 @@
       
       <guid>/blogs/tempus/</guid>
       <description>As you could easily tell from my name - I come from Germany. So I am interested to find out if it is true, the stereotype of Germans drink most beer and French people drink most wine is true.
-Where Do People Drink The Most Beer, Wine And Spirits? knitr::opts_chunk$set(message = FALSE, warning = FALSE, tidy=FALSE,size=&amp;quot;small&amp;quot;)options(digits = 3)knitr::opts_chunk$set(fig.width=6.75, fig.height=6.75,fig.align = &amp;quot;center&amp;quot;)library(tidyverse)library(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest)library(purrr) library(lubridate)library(ggrepel)library(patchwork)library(fivethirtyeight)data(drinks)The drinks data has 1 character variable and 4 numeric variables and there are no missing values we should worry about.</description>
+Where Do People Drink The Most Beer, Wine And Spirits? library(tidyverse)library(mosaic)library(ggthemes)library(lubridate)library(fivethirtyeight)library(here)library(skimr)library(janitor)library(vroom)library(tidyquant)library(rvest)library(purrr) library(lubridate)library(ggrepel)library(patchwork)library(fivethirtyeight)data(drinks)The drinks data has 1 character variable and 4 numeric variables and there are no missing values we should worry about.</description>
     </item>
     
     <item>

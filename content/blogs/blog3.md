@@ -1,32 +1,15 @@
 ---
 title: "Beer, Wine And Spirits"
 date: '2017-10-31T22:26:13-05:00'
-description: If you have any further questions please don' hesitate to get in touch.
-draft: no
 image: Wine2.jpg
-keywords: ''
 slug: tempus
-categories:
-- ''
-- ''
+output: html_document
 ---
 
 As you could easily tell from my name - I come from Germany. So I am interested to find out if it is true, the stereotype of Germans drink most beer and French people drink most wine is true.
 
 # Where Do People Drink The Most Beer, Wine And Spirits?
 
-```{r, setup, echo=FALSE}
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE, 
-  tidy=FALSE,
-  size="small")
-options(digits = 3)
-knitr::opts_chunk$set(
-  fig.width=6.75, 
-  fig.height=6.75,
-  fig.align = "center")
-```
 
 ```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
 library(tidyverse)
@@ -46,12 +29,12 @@ library(ggrepel)
 library(patchwork)
 ```
 
-```{r, load_alcohol_data}
+```{r, load_alcohol_data, echo=false}
 library(fivethirtyeight)
 data(drinks)
 ```
 The drinks data has 1 character variable and 4 numeric variables and there are no missing values we should worry about.
-```{r glimpse_skim_data}
+```{r glimpse_skim_data, echo=false}
 skim(drinks)
 ```
 Below is a plot of the top 25 beer consuming countries.

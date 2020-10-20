@@ -1,14 +1,14 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T22:26:09-05:00"
+title: "Climate Change"
+date: '2017-10-31T22:26:09-05:00'
 description: Lorem Etiam Nullam
-draft: false
+draft: no
 image: Climate.jpeg
-keywords: ""
+keywords: ''
 slug: magna
-title: Climate Change
+categories:
+- ''
+- ''
 ---
 
 Climate change is an important issue in our lives. We should try to be more aware of our environment and take better care of our world.
@@ -91,7 +91,7 @@ comparison <- tidyweather %>%
     TRUE ~ "2011-present"))
 ```
 Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in.
-```{r density_plot, echo=true}
+```{r density_plot}
 ggplot(comparison, aes(x=delta, fill=interval))+
   geom_density(alpha=0.2) +
   theme_bw() +
