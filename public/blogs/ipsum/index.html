@@ -82,7 +82,8 @@
                             
                                 <span class="image main"><img src="/img/blogs/corona.jpg" alt="" /></span>
                             
-                            <pre><code class="language-{r," data-lang="{r,">url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
+                            <p>Our daily lives are impacted by Corona. Therfore I thought it would be interesting to analyse as Data set about Corona.</p>
+<pre><code class="language-{r," data-lang="{r,">url &lt;- &quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&quot;
 covid_data &lt;- vroom::vroom(url)%&gt;%
   clean_names()
 </code></pre><p>Given the data we have, we will produce two graphs that show death % rate, first by age group, sex, and whether the patient had co-morbidities or not.</p>

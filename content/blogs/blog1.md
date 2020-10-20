@@ -3,13 +3,15 @@ categories:
 - ""
 - ""
 date: "2017-10-31T21:28:43-05:00"
-description: This project illustrates the top 10 cities in California that donated money to Trump and Clinton.
+description:
 draft: false
 image: corona.jpg
 keywords: ""
 slug: ipsum
 title: COVID-19 Public Use Data
 ---
+
+Our daily lives are impacted by Corona. Therfore I thought it would be interesting to analyse as Data set about Corona.
 
 ```{r, cache=TRUE}
 url <- "https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD"
