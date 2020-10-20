@@ -111,7 +111,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "Corona"
-      subtitle = "Nisl Sed Aliquam"
+      subtitle = "Hospital"
       image = "Corona1.jpg"
       url = "blogs/ipsum"
 
@@ -139,10 +139,8 @@ disqusShortname = ""
   [params.two]
      enable = true
     title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs.
-    """
-    buttonText = "Get Started"
+    subtitle = "I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs."
+      buttonText = "Get Started"
     url = "blogs"
 
 
