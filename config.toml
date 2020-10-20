@@ -137,19 +137,22 @@ disqusShortname = ""
 
   # Section Type Two
   [params.two]
-    enable = true
-    title = "My Webpage"
-    subtitle = "I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs."
-    buttonText = "Overview of Blogs"
+     enable = true
+    title = "Massa libero"
+    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+    I hope you have enjoyed this Website. Please feel free to get in touch with me to discuss current affairs.
+    """
+    buttonText = "Get Started"
     url = "blogs"
 
 
+ 
   # Contact section
   [params.contact]
     enable = true
     buttonSend = "Send message"
     buttonClear = "Clear"
-    formEmail = "https://formspree.io/f/mayloepw"
+    formEmail = "https://formspree.io/f/xvovazve"
   
 
     # Since this template is static, the contact form uses www.formspree.io as a
